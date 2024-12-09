@@ -11,9 +11,9 @@ element* creerListe() {
     return NULL; 
 }
 
-
+int i ;
 element* chargerListe(int Tab[], int size, element* liste) {
-    for (int i = 0; i < size; i++) {
+    for (i = 0; i < size; i++) {
         element* nouveau = (element*)malloc(sizeof(element));
         if (nouveau == NULL) {
             printf("error\n");
@@ -73,7 +73,7 @@ void viderListe(element* liste) {
         courant = courant->suivant;
         free(temp);
     }
-    printf("empty.\n");
+    printf("empty liste \n");
 }
 
 int main() {
