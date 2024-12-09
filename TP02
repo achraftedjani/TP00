@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// ** وظيفة قراءة سلسلة نصية مع تخصيص ذاكرة ديناميكيًا **
+
 char* ChargerChaine(int N) {
     char* chaine = (char*)malloc(N * sizeof(char));
     if (chaine == NULL) {
-        printf("خطأ في تخصيص الذاكرة.\n");
+        printf("error\n");
         exit(1);
     }
-    printf("أدخل سلسلة نصية (حتى %d حرف):\n", N - 1);
+    printf("agin"):\n", N - 1);
     scanf("%s", chaine);
     return chaine;
 }
