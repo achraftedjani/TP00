@@ -1,0 +1,73 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// ** وظيفة قراءة سلسلة نصية مع تخصيص ذاكرة ديناميكيًا **
+char* ChargerChaine(int N) {
+    char* chaine = (char*)malloc(N * sizeof(char));
+    if (chaine == NULL) {
+        printf("خطأ في تخصيص الذاكرة.\n");
+        exit(1);
+    }
+    printf("أدخل سلسلة نصية (حتى %d حرف):\n", N - 1);
+    scanf("%s", chaine);
+    return chaine;
+}
+
+// ** وظيفة حساب طول السلسلة النصية **
+int Longueur(char* ch) {
+    int length = 0;
+    while (ch[length] != '\0') {
+        length++;
+    }
+    return length;
+}
+
+// ** إجراء لتحميل السلسلة النصية في جدول **
+void ChargerTab(char* p, char Tab[]) {
+    int i = 0;
+    while (p[i] != '\0') {
+        Tab[i] = p[i];
+        i++;
+    }
+    Tab[i] = '\0';
+}
+
+// ** إجراء لعكس النص في مصفوفة جديدة **
+void InverserTab(char Tab[], char T[], int m) {
+    for (int i = 0; i < m; i++) {
+        T[i] = Tab[m - 1 - i];
+    }
+    T[m] = '\0';
+}
+
+// ** إجراء لعرض النص الموجود في مصفوفة **
+void AfficherTab(char Tab[], int m) {
+    for (int i = 0; i < m; i++) {
+        printf("%c", Tab[i]);
+    }
+    printf("\n");
+}
+
+int main() {
+    char* ch;
+    int n;
+
+    printf("أدخل الطول الأقصى للنص:\n");
+    scanf("%d", &n);
+
+    ch = ChargerChaine(n);
+    int m = Longueur(ch);
+
+    char Tab[m], T[m];
+
+    ChargerTab(ch, Tab);
+    printf("النص الذي تم تحميله:\n");
+    AfficherTab(Tab, m);
+
+    InverserTab(Tab, T, m);
+    printf("النص بعد العكس:\n");
+    AfficherTab(T, m);
+
+    free(ch); // تحرير الذاكرة
+    return 0;
+}
