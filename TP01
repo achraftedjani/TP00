@@ -42,9 +42,12 @@ int main() {
         printf("%c ", matrix[i][i]);
     }
     printf("\n");
+    return 0;
+}
+2)
+#include <stdio.h>
 
-
-
+int main() {
 
     int square[4][4] = {
         {1, 2, 3, 4},
